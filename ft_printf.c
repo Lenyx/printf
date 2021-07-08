@@ -5,7 +5,6 @@ t_flags	ft_flags_init(void)
 	t_flags		flags;
 
 	flags.type = 0;
-	flags.width = 0;
 	return (flags);
 }
 
@@ -15,8 +14,6 @@ int	ft_flag_parse(const char *save, int i, t_flags *flags)
 	{
 		if (!ft_isdigit(save[i]) && !ft_type_list(save[i]))
 			break ;
-		if (ft_isdigit(save[i]))
-			ft_digit_flag(save[i], flags);
 		if (ft_type_list(save[i]))
 		{
 			flags->type = save[i];
@@ -44,7 +41,7 @@ int	ft_treat_save(const char *save, va_list args)
 		{
 			i = ft_flag_parse(save, ++i, &flags);
 			if (ft_type_list(save[i]))
-				char_count += ft_treatment((char)flags.type, flags, args);
+				char_count += ft_treatment((char)flags.type, args);
 			else if (save[i])
 				char_count += ft_putchar(save[i]);
 		}
@@ -52,7 +49,7 @@ int	ft_treat_save(const char *save, va_list args)
 			char_count += ft_putchar(save[i]);
 		i++;
 	}
-	return (i);
+	return (char_count);
 }
 
 int	ft_printf(const char *input, ...)
