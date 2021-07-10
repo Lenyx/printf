@@ -1,5 +1,3 @@
-LIBFT = ./libft/libft.a
-
 NAME = libftprintf.a
 
 SRCS =  ft_printf.c \
@@ -18,6 +16,12 @@ SRCS =  ft_printf.c \
 		sources/ft_hexa_treat.c \
 		sources/ft_str_tolower.c \
 		sources/ft_pointer_treat.c \
+		sources/ft_tolower.c \
+		sources/ft_strlen.c \
+		sources/ft_strdup.c \
+		sources/ft_putchar_fd.c \
+		sources/ft_itoa.c \
+		sources/ft_isdigit.c \
 
 SURPL_O =	ft_char_treat.o \
 			ft_flags_treat.o \
@@ -34,6 +38,12 @@ SURPL_O =	ft_char_treat.o \
 			ft_hexa_treat.o \
 			ft_str_tolower.o \
 			ft_pointer_treat.o \
+			ft_tolower.o \
+			ft_strlen.o \
+			ft_strdup.o \
+			ft_putchar_fd.o \
+			ft_itoa.o \
+			ft_isdigit.o \
 
 CC = gcc
 
@@ -44,20 +54,16 @@ INCLUDES = -I./includes
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	$(MAKE) -C ./libft
-	cp libft/libft.a $(NAME)
 	$(CC) $(FLAGS) $(INCLUDES) $(SRCS)
 	ar -rcs $(NAME) $(OBJS)
 
 all	: $(NAME)
 
 clean :
-	$(MAKE) clean -C ./libft
 	rm -rf $(SURPL_O)
 	rm -rf $(OBJS)
 
 fclean : clean
-	$(MAKE) fclean -C ./libft
 	rm -rf $(NAME)
 
 re : fclean all

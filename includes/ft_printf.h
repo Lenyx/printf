@@ -1,18 +1,14 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
 # include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_flags
 {
-	int		already_printed;
 	int		type;
 	int		width;
-	int		minus;
-	int		zero;
-	int		dot;
-	int		star;
 }					t_flags;
 
 int					ft_putstrlen(char *str, int len);
@@ -32,5 +28,12 @@ char				*ft_ull_base(unsigned long long ull, int base);
 char				*ft_str_tolower(char *str);
 int					ft_hexa_treat(unsigned int ui, int lower, t_flags flags);
 int					ft_pointer_treat(unsigned long long ull, t_flags flags);
+
+size_t				ft_strlen(const char *string);
+char				*ft_strdup(const char *s1);
+int					ft_tolower(int c);
+void				ft_putchar_fd(char c, int fd);
+char				*ft_itoa(int n);
+int					ft_isdigit(int c);
 
 #endif

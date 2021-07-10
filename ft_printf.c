@@ -52,7 +52,7 @@ int	ft_treat_save(const char *save, va_list args)
 			char_count += ft_putchar(save[i]);
 		i++;
 	}
-	return (i);
+	return (char_count);
 }
 
 int	ft_printf(const char *input, ...)
