@@ -13,6 +13,8 @@ int	ft_str_treat(char *str, t_flags flags)
 {
 	int		char_count;
 
+	if (!str)
+		str = "(null)";
 	char_count = 0;
 	char_count += ft_width_treat(flags.width, ft_strlen(str), 0);
 	char_count += ft_put_str(str);
